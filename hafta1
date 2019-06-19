@@ -1,1 +1,127 @@
+ödev1
+
+
+ad=input("adınızı giriniz:")
+a=len(ad)
+b=a/2
+c=int(b)
+boşluk=23-(c+4)
+print("""
+**  **  **  **  **  **  **  **  **  **  **  **
+****  **  **  **  **  **  **  **  **  **  ****
+ **                                        **  
+  **                                      **
+   **                                    **
+  **                                      **
+ **                                        **""")
+print('**',' '*boşluk,ad,' '*boşluk,'**')
+print('**',' '*boşluk,'_'*a,' '*boşluk,'**')
+print(""" **                                        **  
+  **                                      **
+   **                                    **
+  **                                      **
+ **                                        **
+**  **  **  **  **  **  **  **  **  **  **  **
+****  **  **  **  **  **  **  **  **  **  ****""")
+#isim uzunluğu tek sayı olan isimlerde şekil bir birim kayıyor.
+# if fonksiyonlarıyla çözülmesi ya da isim satırında yıldız olmaması lazım.
+
+
+ÖDEV2
+
+
+print("***km-mil DÖNÜŞTÜRÜCÜ***")
+km=input("km=")
+mil=int(km)*0.62
+print(km,"km",mil,"mil 'dir")
+
+
+ödev3
+
+
+print('Öğrenci Not Ortalama Programı,','\n',"Öğrencinin:")
+ad=input("Adı=")
+soyad=input("Soyadı=")
+vize=int(input("Vize Notu="))
+final=int(input("Final Notu="))
+dvm=int(input("Devamsızlık="))
+dvmnotu=100-(int(dvm)*5)
+yilsonunotu=((vize*30)+(final*50)+(dvmnotu*20))/100
+bilgiler=[vize,final,dvmnotu,yilsonunotu]
+print(ad,soyad,"adlı öğrencinin not dökümü aşağıdaki gibidir;")
+print("Vize Notu:{},\nFinal Notu:{},\nDers Takip Notu:{},\nYılsonu Notu:{}".format(bilgiler[0],bilgiler[1],bilgiler[2],bilgiler[3]))
+dosya=open("ogrenciNotHesaplama.txt","w")
+print(ad,soyad,"adlı öğrencinin not dökümü aşağıdaki gibidir;",file=dosya)
+print("Vize Notu:{},\nFinal Notu:{},\nDers Takip Notu:{},\nYılsonu Notu:{}".format(bilgiler[0],bilgiler[1],bilgiler[2],bilgiler[3]),file=dosya)
+dosya.close()
+
+ÖDEV4
+
+
+print("FAİZ HESAPLAMA PROGRAMI")
+anapara=float(input("Ana Para Miktarınız:"))
+faiz_suresi=float(input("Faiz Süreniz (yıl):"))
+faiz_orani=float(input("Faiz Oranı:"))
+faiz_tutari=anapara*faiz_orani*faiz_suresi/100
+aylık_ort_faiz=faiz_tutari/(12*faiz_suresi)
+gunluk_ort_faiz=faiz_tutari/365*faiz_suresi
+toplam_para=anapara+faiz_tutari
+print("Anapara Miktarı:",anapara,"\n Faiz Süresi:",faiz_suresi,"yıl","\nFaiz Oranı",faiz_orani,
+     "\n Faiz Tutarı:",faiz_tutari,"\n Aylık Ortalama Faiz:",aylık_ort_faiz,
+      "\n Günlük Ortalama Faiz:",gunluk_ort_faiz,"\n Toplam Para:",toplam_para)
+dosya=open("faiz_hesaplama.txt","w")
+print("Anapara Miktarı:",anapara,"\n Faiz Süresi:",faiz_suresi,"yıl","\nFaiz Oranı",faiz_orani,
+     "\n Faiz Tutarı:",faiz_tutari,"\n Aylık Ortalama Faiz:",aylık_ort_faiz,
+      "\n Günlük Ortalama Faiz:",gunluk_ort_faiz,"\n Toplam Para:",toplam_para,file=dosya)
+dosya.close()
+
+ÖDEV5
+
+print("AYLIK MASRAF PROGRAMI")
+print("""   
+    """)
+gelir=float(input("Aylık Geliriniz:"))
+print("Harcama Kalemleri")
+print("------------------")
+mutfak=float(input("Aylık Mutfak Harcamanız:"))
+egitim=float(input("Aylık Eğitim Harcamanız:"))
+giyim=float(input("Aylık Giyim Harcamanız:"))
+ulasim=float(input("Aylık Ulaşım Harcamanız:"))
+toplam_masraf=mutfak+egitim+giyim+ulasim
+masraf_gelir_oranı=(toplam_masraf*100)/gelir
+mutfakgider=(mutfak*100)/gelir
+egitimgider=(egitim*100)/gelir
+giyimgider=(giyim*100)/gelir
+ulasimgider=(ulasim*100)/gelir
+print("Gelirinizin;\n",masraf_gelir_oranı,"% si aylık toplam giderleriniz,")
+print(mutfakgider,"% si mutfak giderlerinize,")
+print(egitimgider,"% si eğitim giderlerinize,")
+print(giyimgider,"% si giyim giderlerinize,")
+print(ulasimgider,"% si ulaşım giderlerinize harcanmaktadır.")
+dosya=open("AylikMasraf.txt","w")
+print("AYLIK MASRAF PROGRAMI",file=dosya)
+print("Aylık Geliriniz:",gelir,file=dosya)
+print("Gelirinizin;\n",masraf_gelir_oranı,"% si aylık toplam giderleriniz,",file=dosya)
+print(mutfakgider,"% si mutfak giderlerinize,",file=dosya)
+print(egitimgider,"% si eğitim giderlerinize,",file=dosya)
+print(giyimgider,"% si giyim giderlerinize,",file=dosya)
+print(ulasimgider,"% si ulaşım giderlerinize harcanmaktadır.",file=dosya)
+dosya.close()
+
+
+ÖDEV6
+
+print("Python’un kurucusu Guido Van Rossum, Hollanda’nin Amsterdam’daki "
+      "\"Universiteit Van Amsterdam\" okulundan 1982’de mezun olmuştur.")
+print('Python\'un kurucusu Guido Van Rossum, Hollanda\'nin Amsterdam\'daki'
+'"Universiteit Van Amsterdam" okulundan  1982\'de mezun olmuştur.')
+print("""Python’un kurucusu Guido Van Rossum, 
+Hollanda’nin Amsterdam’daki  "Universiteit Van Amsterdam" okulundan  1982’de mezun olmuştur.""")
+
+
+
+
+
+
+
 
