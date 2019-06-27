@@ -1,0 +1,192 @@
+ ODEV1
+
+print("BURCUNUZU ÖĞRENİN!!")
+print("Doğum Gününüz")
+ay=input("Doğduğunuz Ay(örn:ocak):")
+gun=int(input("Doğduğunuz Gün (örn:15)"))
+
+if (ay=="mart" and gun>=21)or(ay=="nisan" and gun<21):
+    print("Koç Burcu")
+elif (ay=="nisan" and gun>=21) or (ay=="mayıs" and gun<21):
+    print("Boğa Burcu")
+elif (ay=="mayıs" and gun>=21) or (ay=="haziran" and gun<22):
+    print("ikizler Burcu")
+elif (ay=="haziran" and gun>=22) or (ay=="temmuz" and gun<23):
+    print("Yengeç Burcu")
+elif (ay=="temmuz" and gun>=23) or (ay=="ağustos" and gun<23):
+    print("Aslan Burcu")
+elif (ay=="ağustos" and gun>=23) or (ay=="eylül" and gun<23):
+    print("Başak Burcu")
+elif (ay=="eylül" and gun>=23) or (ay=="ekim" and gun<24):
+    print("Terazi Burcu")
+elif (ay=="ekim" and gun>=24) or (ay=="kasım" and gun<23):
+    print("Akrep Burcu")
+ #program düzgün çalışıyor
+
+
+ODEV2
+
+
+print("km-mil Dönüştürücü")
+islem=input("""(1)km-mil dönüşümü;
+(2)mil-km dönüşümü;
+Yapacağınız İşlemin Numarasını Giriniz:""")
+veri=int(input("Dönüştürmek istediğiniz uzunluk değeri:"))
+if islem=="1":
+    print(veri,"km",veri*0.62,"mil 'e eşittir.")
+elif islem=="2":
+    print(veri,"mil",veri*1.61,"km 'ye eşittir.")
+else:
+    print("geçersiz işlem kodu veya uzunluk girdiniz.")
+#program  düzgün çalışıyor.
+
+
+ODEV3
+
+
+print("Sisteme Yeni Kayıt")
+hafta2odev3=open("hafta2odev3","w")
+a=1
+while a==1:
+    username1=input("kullanıcı adı(enaz 3 en fazla 18 karakter):")
+    username=len(username1)
+    if username>18:
+        print("""seçilen kullanıcı adı 18 karakterden fazla olamaz.
+        Lütfen tekrar deneyin.""")
+        a=1
+    elif username<3:
+        print("""Seçilen kullanıcı adı 3 karakterden az olamaz.
+        Lütfen tekrar deneyin.""")
+        a=1
+    else:
+        a=0
+print("kullanıcı adı:",username1,file=hafta2odev3)
+b=1
+while b==1:
+    parola1=(input("parola(en az 6,en fazla 12 karakter):"))
+    parola=len(parola1)
+    if parola<6:
+        print("""parola 6 karakterden az olamaz
+        Lütfen tekrar deneyin.""")
+        b=1
+    elif parola>12:
+        print("""Parola 12 karakterden fazla olamaz.
+        Lütfen tekrar deneyin.""")
+        b=1
+    else:
+        print("Kullanıcı adı ve parola kaydedilmiştir.")
+        print("parola:",parola1,file=hafta2odev3)
+        b=0
+hafta2odev3.close()
+
+#program çalışıyor.dosyaya kayıt yapıyor.
+
+
+ODEV4
+print("Sayı Bulma Oyunu")
+print("Aklımdan 1 ile 10 arasında bir sayı tuttum.Haydi çabucak bul")
+print("""OYUN KURALLARI
+-İlk seferde bilen (3)yıldız kazanır
+-İki deneme sonunda bilen(2)yıldız kazanır
+-Üç veya dört deneme sonunda bilen (1)yıldız kazanır
+-Dörtten daha fazla deneme yapan yıldız alamaz.""")
+anahtar=1
+#anahtar 1 ise while döner.0 ise sona erer.
+b=1
+#b değeri kaçıncı denemede doğru tahmin yapıldığını belirler
+while anahtar==1:
+    tahmin=int(input("bir tahminde bulun:"))
+    if tahmin!=4:
+        print("tekrar dene")
+        anahtar=1
+        b=b+1
+    else:
+        print(b,"inci seferde doğru cevabı buldun.")
+        anahtar=0
+        if b==1:
+            print("*** yıldız kazandın")
+        elif b==2:
+            print("** yıldız kazandın")
+        elif b==3 or b==4:
+            print("* yıldız kazandın")
+    #4 den daha fazla deneyen yıldız kazanamasın.bu yüzden else yi boş bıraktım.program düzgün çalışıyor.
+
+
+ODEV5
+
+
+print("ATM ye HOŞGELDİNİZ..")
+anahtar=1
+bakiye=1000
+while anahtar==1:
+   anamenu=input("""(1)Bakiye Kontrol
+    (2)Para Yatırma
+    (3)Para Çekme
+    (0)Çıkış
+    Yapmak istediğiniz işlemi giriniz:""")
+   #bakiye kontrol
+   if anamenu=="1":
+       print("Bakiyenizde",bakiye,"€ bulunmaktadır.")
+
+       #her işlemin sonuna gelecek(çıkış veya anamenü sorusu)
+       islem1=input("""(1)Ana Menü
+       (0)Çıkış
+       Ne yapmak istersiniz:""")
+       if islem1=="1":
+           anahtar=1
+       else:
+           print("Çıkış yapılıyor.Kartınızı almayı unutmayınız.")
+           anahtar=0
+
+    #para yatırma
+   elif anamenu=="2":
+       yatirilan=int(input("Yatırmak istediğiniz miktarı belirtiniz:"))
+       print("Önceki Bakiyeniz:",bakiye)
+       print("Yatırılan:",yatirilan)
+       bakiye=bakiye+yatirilan
+       print("Toplam Bakiye:",bakiye)
+
+       # her işlemin sonuna gelecek(çıkış veya anamenü sorusu)
+       islem1 = input("""(1)Ana Menü
+              (0)Çıkış
+              Ne yapmak istersiniz:""")
+       if islem1=="1":
+           anahtar=1
+       else:
+           print("Çıkış yapılıyor.Kartınızı almayı unutmayınız.")
+           anahtar=0
+
+   # para çekme işlemi
+   elif anamenu=="3":
+       print("Maksimum çekebileceğiniz miktar",bakiye,"€ dur")
+       anahtar2=1
+       while anahtar2==1:
+           cekilen_para=int(input("Çekmek istediğiniz tutarı giriniz:"))
+           if cekilen_para>bakiye:
+               print("Hesabınızda yeterli miktarda para bulunmamaktadır.")
+               islem2=input("""(1)Para çekme
+               (0)Çıkış
+               Ne yapmak istersiniz:""")
+               if islem2=="1":
+                   anahtar2=1
+               else:
+                   print("Ana menüye yönlendiriliyorsunuz..")
+                   anahtar2=0
+           else:
+               print("Önceki Bakiyeniz:",bakiye)
+               print("Çekilen Miktar:",cekilen_para)
+               bakiye=bakiye-cekilen_para
+               print("Kalan:",bakiye)
+
+               # her işlemin sonuna gelecek(çıkış veya anamenü sorusu)
+               islem1=input("""(1)Ana Menü
+                            (0)Çıkış
+                            Ne yapmak istersiniz:""")
+               if islem1 == "1":
+                   anahtar=1
+               else:
+                   print("Çıkış yapılıyor.Kartınızı almayı unutmayınız.")
+                   anahtar=0
+                   
+   #valla ben bir hatasını görmedim :))ama iyi soruydu.
+
