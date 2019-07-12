@@ -1,0 +1,94 @@
+odev 1
+
+#kullanicinin girdigi ismi buyuk harflerle yazdirma
+
+while True:
+    isim = input("Bir isim giriniz (Cikis icin x yazin):")
+    if isim=="x":			#cikis yaptiran kisim
+       break
+    else:
+        print(isim.upper())		#ismi buyuk harfe ceviren kisim
+
+
+
+ODEV2
+
+
+print("(parolanizda buyuk harf,kucuk harf,sayi ve karakter olmasi guvenligi artiracaktir)")
+parola=input("bir parola giriniz:")
+sayiadet=0
+buyukharfadet=0
+kucukharfadet=0
+karakteradet=0
+for i in parola:
+    if i.isupper()==True:			#buyukharf mi incelemesi True verdiginde
+        buyukharfadet+=1			#buyuk harflerin adetine 1 ekle
+
+    elif i.islower()==True:			#kucukharf mi incelemesi True verdiginde
+        kucukharfadet+=1			#kucuk harflerin adetine 1 ekle
+
+    elif i.isdigit()==True:			#sayi mi incelemesi True verdiginde
+        sayiadet+=1				#sayilarin adetine 1 ekle
+
+    else:					#harf ve sayi haricindekiler karakter olarak sayiliyor
+        karakteradet+=1
+print("Parolanizda {} tane buyukharf,{} tane kucuk harf,{} tane sayi ve {} tane karakter bulunmaktadir.".format(buyukharfadet,kucukharfadet,sayiadet,karakteradet))
+
+
+
+
+ODEV3
+
+
+#bir metindeki sayilari toplama
+
+metin=input("icinden sayilar ayiklayabilecegim bir metin girin:")
+toplam=0
+for i in metin:
+    if i.isdigit()==True:              #sayi olan karakterleri ayir
+        toplam+=int(i)                 #integera donusturup toplama ekle
+        
+    else:
+        pass                           #sayi olmayan karakterlerde atla
+print("bu metinde ki sayilar toplami:",toplam,)
+
+
+
+ODEV4
+
+#ismi sesli harfle baslayan futbolcularin yeni bir dosyaya kayit edilmesi
+
+dosya=open("Futbolcular.txt","r")                        #var olan futbolcular dosyasini okunur acti
+satir=dosya.readlines()                                   #her satiri inceledi
+sesli="A,E,I,O,U"                                        #sesli harfler kumesi
+for i in satir:                                           
+    if i[0] in sesli:                                    #ilk harfi sesli kumesinde olan satirlar
+        print(i)
+        dosya2=open("sesli_h_futbol.txt","a+")           #yeni dsya a+ile acildi(onceki yazilanlar silinmesin)
+        dosya2.write(i)
+
+    else:
+        pass                                               #sessiz harfle baslayan isimler gormezden gelindi
+dosya2.close()                                             #dosyalar kapatildi
+dosya.close()
+
+
+
+
+ODEV5
+
+kaynak='ç,ğ,ı,ö,ş,ü,Ç,Ğ,Ö,Ş,Ü'
+hedef='c,g,i,o,s,u,C,G,O,S,U'
+ceviritablosu=str.maketrans(kaynak,hedef)
+dosya=open("Futbolcular.txt","r")
+metin=dosya.read()
+a=metin.translate(ceviritablosu)
+print(a)
+dosya2=open("futbolcular2.txt","w+")
+dosya2.write(a)
+dosya.close()
+dosya2.close()
+
+
+
+
