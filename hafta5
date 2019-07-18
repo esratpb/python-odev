@@ -1,0 +1,279 @@
+
+
+
+anakelime="minyon"      #programci istedigi kelimeyi yazsin 6harfli(daha kisa bi kelime soracaksa eksik kisimlara--- yazabilir
+
+#------------------------------------------------------------------------#
+
+adamson='''
+        --------------
+        |       |
+        |       |
+        |      .....
+        |    .. o o ..
+        |    .. ___ ..
+        |     .......
+        |       ||
+        |     //  \\\ 
+        |    //    \\\ 
+        |       ||
+        |     //   \\\ 
+        |    //     \\\                        
+        --------------'''
+
+adam1='''
+        --------------
+        |       |
+        |       |
+        |      .....
+        |    .. o o ..
+        |    .. ___ ..
+        |     .......
+        |       ||
+        |     //  \\\ 
+        |    //    \\\ 
+        |       ||
+        |     //    
+        |    //                             
+        --------------'''
+
+adam2='''
+        --------------
+        |       |
+        |       |
+        |      .....
+        |    .. o o ..
+        |    .. ___ ..
+        |     .......
+        |       ||
+        |     //  \\\ 
+        |    //    \\\ 
+        |       
+        |
+        |
+        -----------------'''
+
+adam3='''
+        --------------
+        |       |
+        |       |
+        |      .....
+        |    .. o o ..
+        |    .. ___ ..
+        |     .......
+        |       ||
+        |     //  
+        |    //    
+        |       
+        |    
+        |                          
+        --------------'''
+
+adam4='''
+        --------------
+        |       |
+        |       |
+        |      .....
+        |    .. o o ..
+        |    .. ___ ..
+        |     .......
+        |       ||
+        |     
+        |    
+        |       
+        |    
+        |                           
+        --------------'''
+adam5='''
+        --------------
+        |       |
+        |       |
+        |    
+        |    
+        |    
+        |    
+        |    
+        |    
+        |    
+        |    
+        |    
+        |                        
+        --------------'''
+#-------------------------------------------------------------------------------------------
+alfabe='abcdefghijklmnoprstuvyz'
+kelime=[i for i in list(alfabe) if i in list(anakelime)]            #tekrar eden harflerde sorunu ortadan kaldirmak
+
+bulunan=kelime[:]       #oyuncunun buldugu harfleri silerek geri gidicez.en son kume bosalinca kelime bulunmus olacak.
+harfhavuz=[]            #oyuncunun soyledigi harfi tekrar etmemesi icin soyledigi harfler listesi
+i=0
+goruntu = list('------')                #kelimenin durumu
+#----------------------------------------------------------------------------------
+
+print("***ADAM ASMA OYUNUNA HOSGELDINIZ.***")
+print("Kelimemiz 6 harften olusuyor.Her yanlis tahminde bir hakkiniz gidecektir.6hakkiniz var.Adami ipten kurtar!!!")
+
+
+while i in range(6):                        #6 hak verilecek
+    harf=input("bir harf girin(cikis icin q):").lower()                 #oyuncu ister kucuk harf girsin ister buyuk oyun calisir
+
+
+
+    if harf.isalpha()==False:
+        print(".....Kelimeler harflerden olusur.Ne yazdin boyle....:))")
+        print(*goruntu)
+
+    elif harf=="q":               #cikis
+        i = 7
+        print("......CIKIS YAPILIYORR.....")
+
+    elif harf in harfhavuz:                                       #daha once soylenmis harfler icin sadece uyari
+        print('...Bu harfi daha once girdin.Yeni bir tane dene...')
+        print(*goruntu)
+
+    else:
+
+        if harf in kelime:                  # harf kelimenin icinde var
+
+            bulunan.remove(harf)
+
+            if len(bulunan) == 0:  # kelime bulundu oyun tamamlandi
+
+                print(*goruntu)
+
+                print(".......TEBRIKLERRRRR.......")
+
+                i = 6
+
+            else:  # var olan bir harf bulundu fakat oyun bitmedi
+
+                for j in range(6):
+
+                    if harf == list(anakelime)[j]:
+                        goruntu[j] = harf
+
+                print(*goruntu)
+
+                print("...Iyi gidiyorusun.Simdi yeni bir harf bulma zamani....")
+                harfhavuz+=[harf]
+
+        else:                                # harf kelimenin icinde yok
+            harfhavuz+=[harf]
+            i+= 1
+
+            if i != 6:
+
+                print("....kalan denme sayisi {}.Hakkin azaliyor,adamin asiliyorrrr.....".format(6 - i))
+
+                # -----------------------------------------------hangi adam gorunmeli
+
+                if 6 - i == 5:
+
+                    print(adam5)
+
+                elif 6 - i == 4:
+
+                    print(adam4)
+
+                elif 6 - i == 3:
+
+                    print(adam3)
+
+                elif 6 - i == 2:
+
+                    print(adam2)
+
+                else:
+
+                    print(adam1)
+
+                # -----------------------------------------------------------------
+
+                print(*goruntu)
+
+
+            else:
+
+                print(adamson)
+
+                print("....ADAMI KURTARAMADIN....")
+                
+                 
+4BASAMAKLI SAYI SAYI OYUNU
+
+
+sayi="1234"    #programci bir sayi girsin
+
+print("*****SAYI TAHMIN OYUNUNA HOSGELDINIZ*****")
+print("""Dort basamakli bir sayiyi bulmaya calisiyorsunuz.
+Siz bana bi tahminde bulundugunuzda:
+ yeri dogru olan rakam icin +
+ yeri yanlis rakam icin - 
+sayi verecegim.Eger tahminindeki rakamlar sayimla uyusmuyorsa herhangi bir sayi soylemem.
+Her rakam sadece bir kere kullanilacak unutma!!
+""")
+
+
+
+while True:
+    tahmin=input('Rakamlari farkli 4 basamakli bir sayi girin(Cikis icin q):')
+
+
+    for x in range(4):
+        list1 = list(tahmin)
+        del list1[x]
+
+    if tahmin=="q":
+        break
+    elif tahmin.isdigit() == False or len(tahmin)!=4:
+        print("Bu dort basamakli bir sayi degil.")
+    elif list(tahmin)[x] in list1:            #tekrarli sayi
+        print("tekrarli sayi")
+
+
+    else:
+        arti = 0
+        eksi = 0
+        for i in range(4):
+
+            if tahmin[i]==sayi[i]:
+                arti+=1
+
+
+            elif(tahmin[i]!=sayi[i])and tahmin[i]in sayi:
+                eksi+=1
+
+        print("+{},-{}".format(arti, eksi))
+        if arti == 4:
+            print("""TEBRIKLER!!!
+OYUNU TAMAMLADINIZ.SAYIYI BULDUNUZ""")
+            break
+
+
+
+
+  
+
+
+ BONUS ODEV
+
+
+print ("BONUS ODEVV")
+list1=[*range(11)]
+list2=list("abcdefghij")
+list=[]
+liste_ters=[]
+for i in list1:
+    for j in list2:
+        #list.append(str(i)+j)
+#print(list)
+        list+=[str(i)+j]
+print(list)
+
+#iki turlu de oluyor
+
+for j in list2:
+    for i in list1:
+        liste_ters+=[j+str(i)]
+
+print(liste_ters)
+
