@@ -203,6 +203,7 @@ while i in range(6):                        #6 hak verilecek
 
 sayi="1234"    #programci bir sayi girsin
 
+
 print("*****SAYI TAHMIN OYUNUNA HOSGELDINIZ*****")
 print("""Dort basamakli bir sayiyi bulmaya calisiyorsunuz.
 Siz bana bi tahminde bulundugunuzda:
@@ -224,7 +225,7 @@ while True:
 
     if tahmin=="q":
         break
-    elif tahmin.isdigit() == False or len(tahmin)!=4:
+    elif tahmin.isdigit()== False or len(tahmin)!=4:
         print("Bu dort basamakli bir sayi degil.")
     elif list(tahmin)[x] in list1:            #tekrarli sayi
         print("tekrarli sayi")
@@ -247,6 +248,8 @@ while True:
             print("""TEBRIKLER!!!
 OYUNU TAMAMLADINIZ.SAYIYI BULDUNUZ""")
             break
+
+
 
 
 
